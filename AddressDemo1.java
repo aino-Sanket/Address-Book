@@ -78,15 +78,17 @@ public class AddressDemo1
 				
 				AddressDemo1 obj[]=new AddressDemo1[20];
 				
-				System.out.println("#============== Address Book Menu =================#");
 				do
 				{
+					System.out.println("#============== Address Book Menu =================#");
+					
 					System.out.println("\n");
 					System.out.println("1. Create New Address");
 					System.out.println("2. Show all Addresses");
 					System.out.println("3. Find By Name");
 					System.out.println("4. Delete by Name");
-					System.out.println("5. Exit");
+					System.out.println("5. Update");
+					System.out.println("6. Exit");
 					System.out.println("Enter your choice....\t");
 					
 					choice=scn.nextInt();
@@ -169,8 +171,40 @@ public class AddressDemo1
 							}
 							
 							break;
-							
+						
+						
 						case 5:
+							Scanner scanner=new Scanner(System.in);
+							System.out.println("Enter the name whose details are to be updated");
+							String NameToUpdate=scanner.nextLine();
+							
+							for(int cnt2=0;cnt2<i;cnt2++)
+							{
+								if(obj[cnt2].name.equals(NameToUpdate)== true)
+								{
+									System.out.println("Enter the new address");
+									
+									System.out.println("\nEnter the new street");
+									obj[cnt2].street=scanner.nextLine();
+									
+									System.out.println("Enter the new City");
+									obj[cnt2].city=scanner.nextLine();
+									
+									System.out.println("Enter the new Country");
+									obj[cnt2].country=scanner.nextLine();
+									
+									System.out.println("Enter the new zipcode");
+									obj[cnt2].zipcode=scanner.nextInt();
+									
+									System.out.println("\nRecord Deleted succesfully...\n");
+									
+								}
+							}
+								
+								break;
+							
+							
+						case 6:
 							System.out.println("Thank You Visit Again... ");
 							break;
 							
@@ -178,8 +212,8 @@ public class AddressDemo1
 					
 					}
 					
-					}while(choice!=5);
+					}while(choice!=6);
 				
 				}
 			
-}
+
