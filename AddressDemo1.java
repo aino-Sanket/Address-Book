@@ -262,13 +262,11 @@ public class AddressDemo1
 								
 							flag=false;
 							
-							
 								break;
+		
+
 							
-//								else
-								//	{
-								//		cnt++;
-								//	}
+							
 						case 6:
 							System.out.println("Thank You Visit Again... ");
 							break;
