@@ -13,7 +13,7 @@
 import java.util.Scanner;
 
 
-public class AddressDemo1
+public class AddressDemo
 {
 	
 		public String name;
