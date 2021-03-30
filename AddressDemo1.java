@@ -1,16 +1,31 @@
+/**
+ * This class provides an AddressBook facility which helps to manage and store information of people and their addresses.
+ * It provides features as mentioned below.
+ * 1. Add details of a person.
+ * 2. Display  information of all persons.
+ * 3. Display details of a specific  person.
+ * 4. Delete details of a specific person.
+ * 5. Update details of a person. 
+ */ 
+
+
+
 import java.util.Scanner;
+
 
 public class AddressDemo1
 {
 	
-	public String name;
-	public String street;
-	public String city;
-	public String country;
-	public int zipcode;
+		public String name;
+		public String street;
+		public String city;
+		public String country;
+		public int zipcode;
 	
 	
-		//Default Constructor
+		
+		
+		 //This is a Default Constructor which initializes the class characteristics to its default value 
 		public AddressDemo1()
 		{
 			this.name=null;
@@ -22,8 +37,18 @@ public class AddressDemo1
 		
 	
 		
-			//Accept the details of people.
-			public void Accept()
+		
+		
+			/**
+			 * this methods accepts the details of the person such as 
+			 * Name_of_Person
+			 * and address related fields such as
+			 * street_name
+			 * city_name
+			 * country_name
+			 * zipcode
+			 */
+			public void acceptPersonDetails()
 			{
 				Scanner sc=new Scanner(System.in);
 				
@@ -43,40 +68,40 @@ public class AddressDemo1
 		
 	
 			
-			//Display the details of people.
-			public void Display()
+		
+			
+			
+		
+			 // this method displays the details of the persons stored in the address book.	 
+			public void displayPersonDetails()
 			{
 				System.out.println("\n\nHello The Details are.... ");
 				System.out.println("Name is: " + name);
 				System.out.println("Street is: "+ street);
 				System.out.println("City is:  "+ city);
 				System.out.println("Country is: "+ country);
-				System.out.println("City is:  "+ zipcode);
-				
+				System.out.println("City is:  "+ zipcode);	
 			}
 			
 			
-			public void findByName(AddressDemo obj,String nametofind)
-			{
-				for(int i=0;i<obj.length;i++)
-				{
-					
-				}
-			}
-		
-		
-		
+			
+			
+			
 		
 			//Entry Point Function
 			public static void main(String arg[])
 			{
 				
 				int choice=0;
-				int i=0;
+				int objectIndex=0;		//This variable is used to iterate through the array of objects.
+				boolean flag=false;		//flag variable to check the record is present in the AddressBook or not. 
 				
 				Scanner scn=new Scanner(System.in);
 				
+				
+				//This is an array of objects which stores the objects as its members.
 				AddressDemo1 obj[]=new AddressDemo1[20];
+				
 				
 				do
 				{
@@ -97,48 +122,67 @@ public class AddressDemo1
 					
 					switch(choice)
 					{
-						
+						//Case 1 creates a new object every time and accepts the details of a person.
 						case 1:
-							obj[i]=new AddressDemo1();
-							obj[i].Accept();
-							i++;
+							obj[objectIndex]=new AddressDemo1();
+							obj[objectIndex].acceptPersonDetails();
+							objectIndex++;
 							break;
 							
+							
+							
+						//Case 2 displays the details of all the people whose details are stored  in the AddressBook 	
 						case 2:
-							for(int cnt=0;cnt<i;cnt++)
+							if(objectIndex<=0)
 							{
-								obj[cnt].Display();
+								System.out.println("No Records in AddressBook to show....\n");
+							}
+							
+							
+							
+							for(int cnt=0;cnt<objectIndex;cnt++)
+							{
+								obj[cnt].displayPersonDetails();
 							}
 							break;
 							
+							
+							
+						//Case 3 Finds a specific persons details whose name is used  as a parameter to search through the AddressBook.	
 						case 3:
 							System.out.println("\nEnter the name whose details are to be found ");
 							Scanner scnn=new Scanner(System.in);
-							String find_by_name=scnn.nextLine();
-							int cnt=0;
-							for(int j=0;j<i;j++)
+							String findByName=scnn.nextLine();
+						     
+							for(int j=0;j<objectIndex;j++)
 							{
-								if(obj[j].name.equals(find_by_name)== true)
+								if(obj[j].name.equals(findByName)== true)
 								{
+									flag=true;		//Flag variable set to true if the record is found.
+									
 									System.out.println("\nRecord Found");
-									obj[j].Display();
+									obj[j].displayPersonDetails();
 								}
 								
-								else
-								{
-									cnt++;
-								}
+								
 							}
-							if(cnt==i)
+							
+						
+							if(flag==false)		//Condition to check whether record is present or not.
 							{
 								System.out.println("\nRecord not found\n");
 							}
 						
-							//System.out.println("Record not found");
+							flag=false;
+							
 							break;
 							
 						
 							
+							
+							
+							
+						//Case 4 is used to  delete a persons record using a name  passed by the user.
 						case 4:
 							String deleteByName;
 							int cnt1=0,loopcnt=0;
@@ -148,40 +192,48 @@ public class AddressDemo1
 							System.out.println("Enter the name whose record is to be to be deleted");
 							deleteByName=scann.nextLine();
 							
-							for(cnt1=0;cnt1<i;cnt1++)
+							for(cnt1=0;cnt1<objectIndex;cnt1++)
 							{
-								if(obj[cnt1].name.equals(deleteByName)== true)
+								if(obj[cnt1].name.equals(deleteByName)== true)		//Check if the name matches with the records(AddressBook)
 								{
-									obj[cnt1]=obj[i-1];
-									i--;
+									flag=true;
+									obj[cnt1]=obj[objectIndex-1];
+									objectIndex--;
 									
 									System.out.println("\nRecord Deleted succesfully...\n");
 									break;
 								}
-							/*	else
-								{
-									loopcnt++;
-								}
-							*/
 								
 							}
-							if(cnt1 > i-1)
+							
+							
+				
+							if(flag==false)		//Condition to check whether record is present or not.
 							{
 								System.out.println("\nThe Record which is to be deleted is not found...\n");
 							}
 							
+							flag=false;
+							
 							break;
 						
 						
+							
+						
+							
+						//Case 5 is used to Update the details of a person by accepting the name from the user whose details are to Updated.	
 						case 5:
 							Scanner scanner=new Scanner(System.in);
 							System.out.println("Enter the name whose details are to be updated");
-							String NameToUpdate=scanner.nextLine();
+							String nameToUpdate=scanner.nextLine();
+							int cnt2=0;		//Variable to iterate through AddressBook.
 							
-							for(int cnt2=0;cnt2<i;cnt2++)
+							for(cnt2=0;cnt2<objectIndex;cnt2++)
 							{
-								if(obj[cnt2].name.equals(NameToUpdate)== true)
+								if(obj[cnt2].name.equals(nameToUpdate)== true)
 								{
+									flag=true;
+									
 									System.out.println("Enter the new address");
 									
 									System.out.println("\nEnter the new street");
@@ -196,14 +248,27 @@ public class AddressDemo1
 									System.out.println("Enter the new zipcode");
 									obj[cnt2].zipcode=scanner.nextInt();
 									
-									System.out.println("\nRecord Deleted succesfully...\n");
+									System.out.println("\nRecord Updated succesfully...\n");
+									
+									break;
 									
 								}
 							}
+				
+							if(flag==false)		//Condition to check whether record is present or not.
+							{
+								System.out.println("Record which is to be updated is not found!!!!");
+							}
 								
+							flag=false;
+							
+							
 								break;
 							
-							
+//								else
+								//	{
+								//		cnt++;
+								//	}
 						case 6:
 							System.out.println("Thank You Visit Again... ");
 							break;
@@ -216,5 +281,4 @@ public class AddressDemo1
 				
 				}
 			
-
 }
