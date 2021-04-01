@@ -19,7 +19,7 @@ public class InitializeRestaurantMenu extends Menu
 	
 		public void initialize()
 		{
-			setMenuTitle("Restaurant Menu");		//Set the Restaurant Menu Title
+			this.setMenuTitle("Restaurant Menu");		//Set the Restaurant Menu Title
 	
 			
 			RestaurantMenuItem RestaurantMenuItem1=new RestaurantMenuItem("Tea",20);	//Assign Tea Menu-Item	
