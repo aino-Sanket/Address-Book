@@ -1,3 +1,21 @@
+/**
+ * 
+ * @author intern-1
+ * 
+ * 
+ * <h1> This is Entry Point Class </h1>
+ * 
+ *  In this class we create the type of menu to be created
+ * 	  for eg: 1 Address-Book Menu
+ * 			  2 Restaurant Menu
+ * 
+ * First we initialize and display the corresponding Menu.
+ * 	
+ * 		 
+ */
+
+
+
 import java.util.*;
 
 public class EntryPoint {
@@ -14,7 +32,7 @@ public class EntryPoint {
 		
 		InitializeRestaurantMenu irm=new InitializeRestaurantMenu();
 		irm.initialize();	//Initialize the Restaurant Menu Title and Menu-Items.
-		irm.Display();		//Display the Restaurant Menu.
+		irm.displayMenu();		//Display the Restaurant Menu.
 	}
 
 }
