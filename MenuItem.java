@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * 
  * @author intern-1
@@ -14,11 +16,14 @@ public class MenuItem
 {
 	
 		public String menuItemTitle;	//Stores the menu-items name
-	
-	
+		public static int order=0;
+		Action action;					//Reference of Action interface.
+		
+		
 			public MenuItem(String menuItemTitle)
 			{
 				this.setMenuItemTitle(menuItemTitle);
+				order++;
 			}
 			
 			
@@ -34,6 +39,17 @@ public class MenuItem
 			public String getMenuItemTitle()
 			{
 				return this.menuItemTitle;
+			}
+			
+			//sets the action of MenuItem
+			public void setAction(Action obj)
+			{
+				this.action=obj;
+			}
+			
+			public Action getAction()
+			{
+				return this.action;
 			}
 			
 			

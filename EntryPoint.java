@@ -23,16 +23,27 @@ public class EntryPoint {
 	public static void main(String arg[])
 	{
 		
-	//	AddressBookMenu abm=new AddressBookMenu();		//Create an instance of AddressBookMenu	 Class
+		InitializeAddressBookMenu iabm=new InitializeAddressBookMenu();		//Create an instance of AddressBookMenu	 Class
 		
-	//	abm.initialize();								//Call the initialize method of AddressBookMenu	Class	
-	// abm.display();
+										//Call the initialize method of AddressBookMenu	Class	
 	
+		iabm.initialize();
+		
+		int flag=0;
+		do
+		{
+			iabm.displayMenu();
+		
+			flag=iabm.getMenuItemOption();						//Get the menu item option from user.
+		}while(flag!=0);
 		
 		
-		InitializeRestaurantMenu irm=new InitializeRestaurantMenu();
-		irm.initialize();	//Initialize the Restaurant Menu Title and Menu-Items.
-		irm.displayMenu();		//Display the Restaurant Menu.
+	//	InitializeRestaurantMenu irm=new InitializeRestaurantMenu();
+	//	irm.initialize();	//Initialize the Restaurant Menu Title and Menu-Items.
+	//	irm.displayMenu();		//Display the Restaurant Menu.
+	
 	}
+	
+	
 
 }

@@ -8,15 +8,14 @@
 
 
 
-import java.util.*;
+import java.util.*; 
 
 
 	public class Menu 
 	{
 	
 			public String menuTitle;	//Variable to store Menu-Item
-			public ArrayList<RestaurantMenuItem> menuitems=new ArrayList<RestaurantMenuItem>();		//List to store all the MenuItems. 
-			
+			public Map<Integer,MenuItem> menuitems=new HashMap<Integer,MenuItem>();		//List to store all the MenuItems. 
 			
 			 
 			
@@ -39,51 +38,43 @@ import java.util.*;
 				//Displays the entire  menu
 				public void displayMenu()
 				{
-					int i=1;	//Variable to print MenuItem Index.
 				
-				
-					Scanner sc=new Scanner(System.in);
-					String choice;	//Variable to accept the choice .	
+					System.out.println("-------------"+menuTitle+"---------------\n");
 					
-					System.out.println("Do you want to display Menu-Items along with index-no   (Y/N)");
-					choice=sc.nextLine();
+					Iterator <Integer> itr = menuitems.keySet().iterator();       //keyset is a method which returns the keys stored in hashmap  
 					
-						if(choice.equalsIgnoreCase("Y"))
-						{
-						System.out.println("-------------"+menuTitle+"---------------");
-						
-							for(RestaurantMenuItem eachItem : menuitems)		//Displays all the MenuItems in Menu with Index
-							{
-								System.out.print("\n"+ i + ": ");				//Display the index
-								eachItem.displayMenuItem();						//Display the menu-item
-								
-								i++;					//Increment the Index			
-								
-							}
-						}
-						
-							else if(choice.equalsIgnoreCase("N"))
-							{
-								System.out.println("-------------"+menuTitle+"---------------");
-								
-								for(RestaurantMenuItem eachItem : menuitems)		//Displays all the MenuItems in Menu without Index
-								{
-									
-									eachItem.displayMenuItem();						//Display the menu-item
-									System.out.println();
-								}
-						
-							}
-						
-							else
-							{
-								System.out.println("Please enter a correct choice...");
-							}
-					
-				
+					while(itr.hasNext())  
+					{  
+					int key=(int)itr.next();  
+					System.out.println(key+":    "+menuitems.get(key).menuItemTitle);  
 					}
+				}
 				
-			
-			
-		
+				
+				
+				
+				//This Method returns the menu option  from the user.
+				public int getMenuItemOption() 
+				{
+					
+					
+					Scanner sc=new Scanner(System.in);
+					System.out.println("\nEnter your choice");
+					int choice=sc.nextInt();
+					
+					
+					MenuItem mi=menuitems.get(choice);
+					return (Integer)mi.getAction().execute();
+					
+					
+					
+	/*				if(loop.equals("true"))
+					{
+						displayMenu();
+						getMenuItemOption();
+					}
+	*/
+					
+				}
+					
 }
