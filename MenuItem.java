@@ -56,7 +56,6 @@ public class MenuItem
 			//Displays the current menu item.
 			public void displayMenuItem()
 			{
-				
 				System.out.print(this.menuItemTitle);
 			}
 
