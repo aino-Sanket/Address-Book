@@ -17,7 +17,7 @@ public class RestaurantMenuItem extends MenuItem
 		public int price;
 		
 		
-			//Initialize the current menu-item
+			//Initialize the current menu-item.
 			public RestaurantMenuItem(String menuItemTitle,int price)	
 			{
 				super(menuItemTitle);
