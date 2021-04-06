@@ -23,17 +23,17 @@ public class InitializeRestaurantMenu extends Menu
 	
 			
 			RestaurantMenuItem RestaurantMenuItem1=new RestaurantMenuItem("Tea",20);	//Assign Tea Menu-Item	
-			menuitems.add(RestaurantMenuItem1);						//Menu-Item added to arraylist of Menu Class
+	//		menuitems.add(RestaurantMenuItem1);						//Menu-Item added to arraylist of Menu Class
 			
 			
 			
 			RestaurantMenuItem RestaurantMenuItem2=new RestaurantMenuItem("Coffee",35);	//Assign Coffee Menu-Item	
-			menuitems.add(RestaurantMenuItem2);						//Menu-Item added to arraylist of Menu Class
+	//		menuitems.add(RestaurantMenuItem2);						//Menu-Item added to arraylist of Menu Class
 			
 			
 			
 			RestaurantMenuItem RestaurantMenuItem3=new RestaurantMenuItem("Toast Butter",50);	//Assign Toast-Butter Menu-Item
-			menuitems.add(RestaurantMenuItem3);							//Menu-Item added to arraylist of Menu Class
+	//		menuitems.add(RestaurantMenuItem3);							//Menu-Item added to arraylist of Menu Class
 			
 		
 		}
