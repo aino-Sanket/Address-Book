@@ -17,8 +17,7 @@ public class PersonAddressInfo {
 	public String state;
 	public String country;
 	public int zipcode;
-//	ArrayList<ActionCreate> addressEntries=new ArrayList<ActionCreate>();
-	
 
-	HashMap<Integer,ActionCreate> addressEntries=new HashMap<Integer,ActionCreate>();
+	public  static HashMap<Integer,ActionCreate> addressEntries=new HashMap<Integer,ActionCreate>();
+	
 }
